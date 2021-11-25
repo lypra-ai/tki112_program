@@ -131,7 +131,7 @@ int main() {
 	Print(myArray, size);
 	cout << endl;
 
-	cout << "\nВведите число = ";
+	cout << "Введите число, меньше которого будут искаться последняя пара элементов массива с одинаковыми знаками = ";
 	int num;
 	cin >> num;
 
@@ -255,9 +255,9 @@ void GetPairCounter(int* array, const size_t size, const int num)
 	int out = 0;
 	size_t i = size - 1;
 	cout << "Найдены пары: ";
-	while (i > 1)
+	while (i > 0)
 	{
-		if ((array[i - 1] * array[i]) < num)
+		if ((array[i - 1] * array[i]) < num && (array[i - 1] * array[i]) >= 0)
 		{
 			cout << "[" << array[i - 1] << ";" << array[i] << "]" << endl;
 			out += 1;
@@ -266,4 +266,6 @@ void GetPairCounter(int* array, const size_t size, const int num)
 			break;
 		i--;
 	}
+	if (out == 0)
+		cout << "Пары не найдены.";
 }
