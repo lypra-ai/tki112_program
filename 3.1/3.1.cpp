@@ -10,6 +10,12 @@ using namespace std;
 * \return значение функции
 **/
 double calcFunction(const double x);
+/**
+* \brief Возможность подсчёта функции в точке x
+* \param x - точка x
+* \return true, если функция определена в точке x
+*/
+bool isCalculated(const double x);
 
 /**
 * \brief Точка входа в программу
