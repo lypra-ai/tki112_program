@@ -23,13 +23,18 @@ bool isCalculated(const double x);
 **/
 int main()
 {
-	const double LOW_BOUND = 0, UP_BOUND = 1, STEP = 0.1, WIDTH = 3;
+	setlocale(LC_ALL, "Russian");
+	const double LOW_BOUND = 0, UP_BOUND = 1, STEP = 0.1;
+	int WIDTH = 3;
 
 	cout << setw(WIDTH) << "X" << " | " << setw(WIDTH) << "Y\n";
 
 	for (double x = LOW_BOUND; x < UP_BOUND; x += STEP)
 	{
-		cout << setw(WIDTH) << x << " | " << setw(WIDTH) << calcFunction(x) << "\n";
+		if (isCalculated(x))
+			cout << setw(WIDTH) << x << " | " << setw(WIDTH) << calcFunction(x) << "\n";
+		else
+			cout << setw(WIDTH) << x << " | " << setw(WIDTH) << "невозможно вычислить значение функции в дданной точке\n";
 	}
 
 	return 0;
@@ -43,5 +48,5 @@ double calcFunction(const double x)
 
 bool isCalculated(const double x)
 {
-	return (x >= std::numeric_limits<double>::min());
+	return x <= 1;
 }
